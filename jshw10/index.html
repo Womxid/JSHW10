@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Поиск в интернете (бесплатные api примеры)
+    Найти любые данные, на произвольную тему
+    Создать файл data.js
+    Создать переменную которая будет хранить данные из публичных api
+    
+    Создать файл index.html
+    Подключить data.js
+    Сформировать контент из данных (картинка загловок и параграф)
+    Добавить данный контент в вёрстку
+    * Добавить стили при необходимости (по желанию) -->
+
+    <div class="content"></div>
+    <img src="" alt="">
+    <script src="data.js"></script>
+    <script>
+        const data = JSON.parse(dataInfo);
+        console.log(data);
+        data.forEach(element => {
+            const divEl = document.createElement('div');
+            divEl.classList.add("box");
+            const contentEl = document.querySelector('.content');
+            const imgEl = document.createElement("img");
+            const headEl = document.createElement("h3");
+            const descrEl = document.createElement("p");
+
+            headEl.textContent = element.name;
+            descrEl.textContent = element.description;
+            imgEl.src = element.url;
+            imgEl.alt = element.id;
+            imgEl.width = element.width;
+            imgEl.height = element.height;
+
+            contentEl.appendChild(headEl);
+            contentEl.appendChild(imgEl);
+            contentEl.appendChild(descrEl);
+        });
+
+    </script>
+</body>
+
+</html>
